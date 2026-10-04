@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f5ed" />
+    <meta name="description" content="Aura's plain-language privacy policy for the student safety companion prototype." />
+    <title>Privacy Policy | Aura</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="policy-page">
+    <a class="skip-link" href="#policy">Skip to privacy policy</a>
+    <header class="policy-header">
+      <a href="/" aria-label="Aura home">Aura · Boundary Buddy</a>
+      <a href="/">Back to Aura</a>
+    </header>
+    <main class="policy-content" id="policy">
+      <p class="eyebrow">YOUR SPACE. YOUR SAY. YOUR WAY.</p>
+      <h1>Privacy, in plain language.</h1>
+      <p class="policy-updated">Prototype policy · Last updated October 3, 2026</p>
+      <p class="policy-lede">Aura is a student safety prototype. This page explains what information the current version uses, where it goes, and what you control.</p>
+
+      <div class="policy-callout"><p><strong>In immediate danger?</strong> Use the SOS button or call 911. Aura is not an emergency service and does not automatically contact anyone.</p></div>
+
+      <h2>Messages and AI</h2>
+      <p>When you send a chat message, Aura sends it to NVIDIA NIM to generate a response. Chat history is held in the open page so replies have context; Aura's server does not save a conversation database. NVIDIA processes requests under its own current service terms and privacy practices, which may change.</p>
+      <p>Your NVIDIA API key is read by the Aura server from its environment and is not sent to the browser. Do not enter passwords, payment details, or information you do not want processed by the AI provider.</p>
+
+      <h2>Voice SOS</h2>
+      <p>Voice SOS is off until you press Start. While it is on, Aura uses your browser's speech-recognition feature to listen for “help” and any custom trigger words you saved. Recognition may send audio to a service chosen by your browser; Aura does not upload or store voice recordings. Voice SOS stops when you turn it off or the app is no longer visible.</p>
+      <p>Browser support varies. If voice recognition is unavailable or permission is denied, use the on-screen SOS control, keyboard shortcut, or emergency call link.</p>
+      <p>An optional setting can start visible recording after a voice SOS trigger. It is off by default, still requires microphone permission, and never uploads or shares a recording by itself.</p>
+
+      <h2>Location and trusted people</h2>
+      <p>A trusted person's name and phone number are stored in this browser. If you choose Share my location, your browser asks for location permission and Aura opens a prefilled text message with a map link. You review and send that message yourself; Aura does not continuously track or silently share your location.</p>
+
+      <h2>Recordings</h2>
+      <p>Audio recording starts after you press Start, or after a voice trigger if you enabled that option, and grant microphone permission. It remains visible while active and is saved to your device's downloads. Aura does not persist recordings on its server.</p>
+      <p>If you choose Analyze with NVIDIA, the selected audio file is uploaded to NVIDIA's Parakeet ASR service for transcription, then the transcript is sent to the configured Llama model for a short summary. This upload requires a separate confirmation; NVIDIA's service terms and retention practices apply. Analysis is limited to 20 MB per recording.</p>
+      <p>Speech recognition can mishear or omit words, and an AI summary can miss context. It cannot verify what happened; review the original recording and transcript yourself.</p>
+      <p>If you choose Share recording, your device's share sheet opens so you can select a recipient. Aura does not send audio to a trusted person automatically.</p>
+
+      <h2>Saved settings and device access</h2>
+      <p>Your optional private chat phrase, custom voice words, auto-record setting, and trusted-person details are stored in this browser. The private phrase triggers SOS only when typed into the open chat and is not sent to NVIDIA NIM. Anyone with access to your unlocked device or browser storage may be able to see locally saved settings.</p>
+      <p>You can remove the phrase and custom voice words in Privacy details. Trusted-person information can be replaced in the People panel or removed by clearing this site's browser data. Downloaded recordings are managed in your device's downloads.</p>
+
+      <h2>Third-party services</h2>
+      <ul>
+        <li>NVIDIA NIM receives chat messages to generate AI replies.</li>
+        <li>NVIDIA Parakeet ASR and the configured Llama model receive audio and transcript only when you confirm recording analysis.</li>
+        <li>Browser speech recognition may use the browser vendor's service when Voice SOS is on.</li>
+        <li>Google Fonts supplies the typefaces used in this prototype and may receive standard connection information.</li>
+        <li>Your messaging app and map provider handle any location message you choose to send.</li>
+      </ul>
+
+      <h2>Scope of this policy</h2>
+      <p>This is a local prototype disclosure, not a promise about a future hosted product. A public deployment should identify its operator, provide a contact for privacy requests, review each provider's current terms, and update this policy to match its actual data practices.</p>
+      <p><a href="/">Return to Boundary Buddy</a></p>
+    </main>
+    <footer class="policy-footer">Aura · Boundary Buddy · Your space. Your say. Your way.</footer>
+  </body>
+</html>

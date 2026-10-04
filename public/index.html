@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f6f0" />
+    <title>Aura | Boundary Buddy</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#home">Skip to Boundary Buddy</a>
+    <div class="app-shell">
+      <aside class="rail" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Aura home"><span class="brand-mark">a</span><span>Aura</span></a>
+        <div class="rail-divider"></div>
+        <button class="rail-link active" aria-current="page" title="Buddy chat"><span class="nav-glyph">✳</span><span>Buddy</span></button>
+        <button class="rail-link" id="contacts-nav" title="Trusted contacts"><span class="nav-glyph">◎</span><span>People</span></button>
+        <div class="rail-bottom"><a href="/privacy.html">Privacy policy</a></div>
+      </aside>
+
+      <main class="main-area" id="home">
+        <header class="topbar">
+          <div class="breadcrumb"><span>YOUR SPACE</span><span class="crumb-slash">/</span><strong>Boundary Buddy</strong></div>
+          <button class="sos-button" id="sos-button" title="Quick SOS (Alt+Shift+S)"><span class="sos-dot"></span> SOS <span class="sos-divider">·</span><span class="sos-hint">get help now</span></button>
+        </header>
+
+        <div class="workspace">
+          <section class="conversation" aria-label="Boundary Buddy conversation">
+            <div class="conversation-heading">
+              <div class="avatar" aria-hidden="true">a<span></span></div>
+              <div><p class="eyebrow">HERE WITH YOU</p><h1>Boundary Buddy</h1><p class="subtitle">Your space. Your say. Your way.</p></div>
+              <span class="online-status"><span></span> Ready</span>
+            </div>
+
+            <div class="chat-scroll" id="chat-scroll" aria-live="polite" aria-relevant="additions">
+              <div class="date-stamp"><span></span><p>JUST FOR THIS MOMENT</p><span></span></div>
+              <article class="message assistant-message">
+                <div class="message-avatar">a</div>
+                <div class="message-content"><p>Hey, I’m here with you. You don’t have to explain everything; what’s going on?</p><time>Boundary Buddy · just now</time></div>
+              </article>
+              <div class="starter-prompts" aria-label="Conversation starters">
+                <button class="prompt-chip">Help me leave politely</button>
+                <button class="prompt-chip">I need a boundary script</button>
+                <button class="prompt-chip">I feel uneasy on campus</button>
+              </div>
+            </div>
+
+            <form class="composer" id="chat-form">
+              <label class="sr-only" for="message-input">Message Boundary Buddy</label>
+              <textarea id="message-input" rows="1" maxlength="4000" placeholder="What’s on your mind?" required></textarea>
+              <div class="composer-footer"><span class="composer-note"><span class="lock-glyph">●</span> Sent to NVIDIA NIM · not saved by Aura</span><button class="send-button" id="send-button" type="submit" aria-label="Send message">Send <span>↗</span></button></div>
+            </form>
+            <p class="chat-disclaimer">Not for emergencies. If you’re in immediate danger, use SOS or call 911.</p>
+          </section>
+
+          <aside class="safety-panel" aria-label="Safety tools">
+            <div class="panel-topline"><p class="eyebrow">YOUR TOOLKIT</p><button class="more-button" id="privacy-button" aria-label="Privacy details" title="Privacy details">···</button></div>
+            <h2>A little more<br />in your corner.</h2>
+            <p class="panel-intro">Small steps, only when you choose them.</p>
+
+            <section class="tool-section">
+              <div class="section-heading"><h3>Stay connected</h3><span class="section-count">01</span></div>
+              <button class="tool-row" id="contact-button"><span class="tool-icon people-icon">◎</span><span class="tool-copy"><strong>Trusted person</strong><small id="contact-summary">Add someone you trust</small></span><span class="tool-arrow">↗</span></button>
+              <button class="tool-row" id="location-button"><span class="tool-icon location-icon">⌖</span><span class="tool-copy"><strong>Share my location</strong><small>Only sent when you ask</small></span><span class="tool-arrow">↗</span></button>
+            </section>
+
+            <section class="tool-section recording-section">
+              <div class="section-heading"><h3>Keep a record</h3><span class="section-count">02</span></div>
+              <button class="record-row" id="record-button"><span class="record-indicator" id="record-indicator"></span><span class="tool-copy"><strong id="record-title">Record a moment</strong><small id="record-caption">Saved on this device only</small></span><span class="record-action" id="record-action">Start</span></button>
+              <p class="recording-note" id="recording-note">Recording starts only when you press Start. Saved recordings stay in your downloads unless you choose to analyze or share one.</p>
+              <div class="recording-actions"><button class="record-secondary" id="analyze-recording-button" type="button" hidden>Analyze with NVIDIA</button><button class="record-secondary" id="share-recording-button" type="button" hidden>Share with trusted person</button></div>
+              <section class="analysis-result" id="analysis-result" aria-live="polite" hidden><h4>Recording review</h4><p class="analysis-summary" id="analysis-summary"></p><details><summary>Speech transcript</summary><p id="analysis-transcript"></p></details></section>
+              <p class="recording-note" id="analysis-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="sos-card" id="sos-card">
+              <div class="sos-card-heading"><span class="sos-card-icon">!</span><span>Need help right now?</span></div>
+              <p>If you’re in immediate danger, being followed, or facing violence, call emergency services.</p>
+              <a class="call-link" href="tel:911">Call 911 <span>↗</span></a>
+              <button class="quick-trigger" id="quick-trigger">Quick SOS <kbd>Alt</kbd><kbd>Shift</kbd><kbd>S</kbd></button>
+              <button class="voice-button" id="voice-button" type="button" aria-pressed="false" aria-describedby="voice-status"><span aria-hidden="true">◉</span><span id="voice-button-label">Start voice SOS</span></button>
+              <p class="voice-status" id="voice-status" role="status" aria-live="polite">Voice SOS is off. “Help” works while listening.</p>
+            </section>
+            <p class="panel-footnote"><span class="shield-glyph">◇</span> Your choices stay yours.</p>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="contact-dialog" class="dialog">
+      <form method="dialog" id="contact-form">
+        <div class="dialog-kicker">YOUR PEOPLE</div><h2>Who do you trust?</h2><p>We’ll only open a message to this person when you choose to share your location.</p>
+        <label for="contact-name">Name</label><input id="contact-name" autocomplete="name" maxlength="80" placeholder="e.g. Sam" />
+        <label for="contact-phone">Phone number</label><input id="contact-phone" type="tel" autocomplete="tel" maxlength="32" placeholder="e.g. +1 555 010 1234" />
+        <div class="dialog-actions"><button class="cancel-button" value="cancel">Cancel</button><button class="save-button" id="save-contact" value="default">Save person</button></div>
+      </form>
+    </dialog>
+
+    <dialog id="notice-dialog" class="dialog">
+      <form method="dialog" id="privacy-form"><div class="dialog-kicker" id="notice-kicker">AURA</div><h2 id="notice-title">A note about privacy</h2><p id="notice-copy">Your chat is sent to NVIDIA NIM to generate a reply. Your API key stays on this server. Recordings stay in downloads unless you choose to upload one to NVIDIA for analysis or share it.</p><label for="safe-word-input">Private chat phrase</label><input id="safe-word-input" type="text" maxlength="80" autocomplete="off" spellcheck="false" placeholder="Optional phrase only you know" /><p class="safe-word-note">Type it as a chat message while Aura is open to trigger SOS. It stays in this browser and is not sent to NVIDIA NIM; Aura does not listen in the background. Someone with access to this device may be able to inspect it.</p><label for="voice-triggers-input">Custom voice words</label><input id="voice-triggers-input" type="text" maxlength="180" autocomplete="off" spellcheck="false" placeholder="help, hey Aura" /><p class="safe-word-note">“Help” always works; add other words separated by commas. Voice matching is active only after you start Voice SOS.</p><label class="check-row" for="auto-record-setting"><input id="auto-record-setting" type="checkbox" /> <span><strong>Record after a voice SOS trigger</strong><small>Off by default. When enabled, a trigger starts visible recording after microphone permission; it does not upload or share.</small></span></label><div class="dialog-actions"><a class="privacy-link" href="/privacy.html">Read privacy policy</a><button class="save-button" id="save-safe-word" value="default">Save settings</button><button class="cancel-button" value="cancel">Close</button></div></form>
+    </dialog>
+
+    <dialog id="analysis-dialog" class="dialog">
+      <form method="dialog" id="analysis-form"><div class="dialog-kicker">RECORDING REVIEW</div><h2>Send this recording for analysis?</h2><p>The audio will be uploaded to NVIDIA for transcription, then the transcript will be sent to the Llama model for a brief summary. Aura does not store the upload; NVIDIA handles it under its own service terms.</p><p>Speech recognition can mishear or omit words, and an AI summary can miss context. Only continue if you are comfortable sharing everyone’s recorded speech with NVIDIA.</p><div class="dialog-actions"><button class="cancel-button" value="cancel">Cancel</button><button class="save-button" id="confirm-analysis" value="default">Upload and analyze</button></div></form>
+    </dialog>
+
+    <dialog id="sos-dialog" class="dialog sos-dialog">
+      <form method="dialog"><div class="dialog-kicker danger-kicker">QUICK SOS</div><h2>Get somewhere safer.</h2><p>If you’re in immediate danger, being followed, or facing violence, call emergency services now. If you can, move toward a staffed or public place and contact someone you trust.</p><p class="sos-recording-status" id="sos-recording-status" role="status" aria-live="polite" hidden></p><button class="text-button" id="stop-sos-recording" type="button" hidden>Stop recording</button><a class="dialog-call" href="tel:911">Call 911 <span>↗</span></a><button class="text-button" value="default">Close</button></form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
