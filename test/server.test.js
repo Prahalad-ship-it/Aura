@@ -109,3 +109,10 @@ test('recording analysis requires the server-side NVIDIA key', async () => {
   assert.equal(response.status, 503);
   assert.match(body.error, /NVIDIA_NIM_API_KEY/);
 });
+
+test('malformed percent-encoding returns HTTP 400', async () => {
+  const response = await fetch(`${baseUrl}/%ZZ`);
+  const body = await response.json();
+  assert.equal(response.status, 400);
+  assert.equal(body.error, 'Something went wrong.');
+});

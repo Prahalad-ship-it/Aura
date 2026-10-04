@@ -239,7 +239,7 @@ const server = createServer(async (request, response) => {
     response.writeHead(200, { 'Content-Type': mimeTypes[extname(filePath)] || 'application/octet-stream' });
     response.end(request.method === 'HEAD' ? undefined : contents);
   } catch (error) {
-    const status = error.statusCode || (error.code === 'ENOENT' ? 404 : 500);
+    const status = error.statusCode || (error.code === 'ENOENT' ? 404 : error instanceof URIError ? 400 : 500);
     response.writeHead(status, { 'Content-Type': 'application/json' });
     response.end(JSON.stringify({ error: status === 404 ? 'Not found' : 'Something went wrong.' }));
   }
